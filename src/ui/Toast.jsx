@@ -17,9 +17,9 @@ export function ToastProvider({ children }) {
   return (
     <ToastContext.Provider value={push}>
       {children}
-      <div className="toasts no-print" role="status" aria-live="polite">
+      <div className="no-print fixed bottom-4 right-4 z-[80] grid gap-2" role="status" aria-live="polite">
         {items.map((t) => (
-          <div key={t.id} className={'toast ' + t.kind}>
+          <div key={t.id} className={'rise max-w-sm rounded-2xl px-4 py-3 text-sm font-bold shadow-lg ' + (t.kind === 'bad' ? 'bg-danger text-white' : 'bg-ink text-bg')}>
             {t.message}
           </div>
         ))}
